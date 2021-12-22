@@ -61,6 +61,7 @@ namespace RozetkaPageFactory.PageObjects
             listProducts[number].Click();
             actionProvider.MoveToElement(wait.Until(ExpectedConditions.ElementToBeClickable(moveToButtonBuy))).Build().Perform();
             elementButtonBuy.Click();
+            actionProvider.MoveToElement(wait.Until(ExpectedConditions.ElementToBeClickable(elementCartClose)));
             elementCartClose.Click();
             actionProvider.MoveToElement(wait.Until(ExpectedConditions.ElementToBeClickable(elementLogo)));
             elementLogo.Click();
