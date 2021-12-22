@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RozetkaPageFactoryParallel", "RozetkaPageFactoryParallel\RozetkaPageFactoryParallel.csproj", "{7BE17D79-4D1C-4393-8594-F44923381493}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BE17D79-4D1C-4393-8594-F44923381493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE17D79-4D1C-4393-8594-F44923381493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE17D79-4D1C-4393-8594-F44923381493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE17D79-4D1C-4393-8594-F44923381493}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC4E1217-1E29-4960-8914-18FAD6D02C25}
+	EndGlobalSection
+EndGlobal

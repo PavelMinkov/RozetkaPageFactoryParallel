@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Filters>
+	<FiltersList>
+<!-- -->
+	<Filter>
+			<categoryProducts>0</categoryProducts>
+			<nameProducts>Ноутбуки</nameProducts>
+			<brand>HP</brand>
+			<sort>2</sort>
+			<numberProduct>0</numberProduct>
+			<price>200000</price>
+		</Filter>
+		<Filter>
+			<categoryProducts>1</categoryProducts>
+			<nameProducts>Телевизор</nameProducts>
+			<brand>Samsung</brand>
+			<sort>1</sort>
+			<numberProduct>0</numberProduct>
+			<price>10000</price>
+		</Filter>
+		<Filter>
+			<categoryProducts>2</categoryProducts>
+			<nameProducts>Мониторы</nameProducts>
+			<brand>Samsung</brand>
+			<sort>2</sort>
+			<numberProduct>0</numberProduct>
+			<price>80000</price>
+		</Filter>
+		<Filter>
+			<categoryProducts>3</categoryProducts>
+			<nameProducts>Холодильники</nameProducts>
+			<brand>Gorenje</brand>
+			<sort>1</sort>
+			<numberProduct>0</numberProduct>
+			<price>10000</price>
+		</Filter>
+		<Filter>
+			<categoryProducts>4</categoryProducts>
+			<nameProducts>Кресла</nameProducts>
+			<brand>Richman</brand>
+			<sort>1</sort>
+			<numberProduct>0</numberProduct>
+			<price>20000</price>
+		</Filter>
+	</FiltersList>
+</Filters>
