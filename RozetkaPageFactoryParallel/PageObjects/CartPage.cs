@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using RozetkaPageFactoryParallel.Decor;
 using SeleniumExtras.PageObjects;
 
 namespace RozetkaPageFactoryParallel.PageObjects
@@ -17,7 +18,7 @@ namespace RozetkaPageFactoryParallel.PageObjects
         IWebElement cartSumm;
 
         public IWebElement GetCart() { return cart; }
-        public void ClickCart() { cart.Click(); }
+        public void ClickCart() { cart.ClickOnIt("Cart"); }
         public IWebElement GetCartSumm() { return cartSumm; }
     }
 }

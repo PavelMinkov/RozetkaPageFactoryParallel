@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using RozetkaPageFactoryParallel.Decor;
 using RozetkaPageFactoryParallel.PageObjects;
 using SeleniumExtras.PageObjects;
 using System.Collections.Generic;
@@ -19,8 +20,8 @@ namespace RozetkaPageFactory.PageObjects
         IWebElement choiseTitle;
 
         public IList<IWebElement> GetCategory() { return listMenu; }
-        public void ClickListMenu(int category) { listMenu[category].Click(); }
+        public void ClickListMenu(int category) { listMenu[category].ClicList(category, "Category"); }
         public IWebElement GetCategoryProducts() { return choiseTitle; }
-        public void TextProduct(string search) { choiseTitle.SendKeys(search + "\n"); }
+        public void TextProduct(string search) { choiseTitle.EnterText(search, "input Products"); }
     }
 }

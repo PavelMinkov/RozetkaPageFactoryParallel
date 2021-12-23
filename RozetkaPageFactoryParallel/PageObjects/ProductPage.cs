@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using RozetkaPageFactoryParallel.Decor;
 using RozetkaPageFactoryParallel.PageObjects;
 using SeleniumExtras.PageObjects;
 using System.Collections.Generic;
@@ -39,17 +40,17 @@ namespace RozetkaPageFactory.PageObjects
         IWebElement elementLogo;
 
         public IWebElement GetInputBrand() { return inputBrand; }
-        public void TextBrand(string searchBrand) { inputBrand.SendKeys(searchBrand + "\n"); }
+        public void TextBrand(string searchBrand) { inputBrand.EnterText(searchBrand, "input Brand"); }
         public IWebElement GetBrand() { return brand; }
-        public void ClickBrand() { brand.Click(); }
+        public void ClickBrand() { brand.ClickOnIt("Brand"); }
         public void SortProducts(int sort) { DropdownElement.SelectByIndex(sort); }
         public IWebElement GetListProducts(int number) { return listProducts[number]; }
-        public void ClickListProducts(int number) { listProducts[number].Click(); }
+        public void ClickListProducts(int number) { listProducts[number].ClicList(number, "Product"); }
         public IWebElement GetButtonBuy() { return moveToButtonBuy; }
-        public void ClickButtonBuy() { elementButtonBuy.Click(); }
+        public void ClickButtonBuy() { elementButtonBuy.ClickOnIt("Button Buy"); }
         public IWebElement GetCartClose() { return elementCartClose; }
-        public void ClickCartClose() { elementCartClose.Click(); }
+        public void ClickCartClose() { elementCartClose.ClickOnIt("Cart Close"); }
         public IWebElement GetLogo() { return elementLogo; }
-        public void ClickLogo() { elementLogo.Click(); }
+        public void ClickLogo() { elementLogo.ClickOnIt("Logo"); }
     }
 }
