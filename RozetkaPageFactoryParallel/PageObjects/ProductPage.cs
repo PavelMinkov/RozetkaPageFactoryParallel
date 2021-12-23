@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using RozetkaPageFactoryParallel.PageObjects;
 using SeleniumExtras.PageObjects;
-using SeleniumExtras.WaitHelpers;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace RozetkaPageFactory.PageObjects
 {
@@ -24,10 +21,7 @@ namespace RozetkaPageFactory.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = "select[class*='select']")]
         IWebElement elementSort;
-        SelectElement DropdownElement
-        {
-            get { return new SelectElement(elementSort); }
-        }
+        SelectElement DropdownElement { get { return new SelectElement(elementSort); } }
 
         [FindsBy(How = How.CssSelector, Using = "span.goods-tile__title")]
         IList<IWebElement> listProducts;
@@ -44,28 +38,18 @@ namespace RozetkaPageFactory.PageObjects
         [FindsBy(How = How.CssSelector, Using = "a.header__logo")]
         IWebElement elementLogo;
 
-        public void ChooseProduct(string searchBrand, int sort)
-        {
-            wait.Until(ExpectedConditions.ElementToBeClickable(inputBrand));
-            inputBrand.SendKeys(searchBrand);
-            Thread.Sleep(2000);
-            wait.Until(ExpectedConditions.ElementToBeClickable(brand));
-            brand.Click();
-            DropdownElement.SelectByIndex(sort);
-            driver.Navigate().Refresh();
-        }
-        public void BuyProduct(int number)
-        {
-            Actions actionProvider = new Actions(driver);
-            wait.Until(ExpectedConditions.ElementToBeClickable(listProducts[number]));
-            listProducts[number].Click();
-            actionProvider.MoveToElement(wait.Until(ExpectedConditions.ElementToBeClickable(moveToButtonBuy))).Build().Perform();
-            elementButtonBuy.Click();
-            actionProvider.MoveToElement(wait.Until(ExpectedConditions.ElementToBeClickable(elementCartClose)));
-            elementCartClose.Click();
-            actionProvider.MoveToElement(wait.Until(ExpectedConditions.ElementToBeClickable(elementLogo)));
-            elementLogo.Click();
-        }
-
+        public IWebElement GetInputBrand() { return inputBrand; }
+        public void TextBrand(string searchBrand) { inputBrand.SendKeys(searchBrand + "\n"); }
+        public IWebElement GetBrand() { return brand; }
+        public void ClickBrand() { brand.Click(); }
+        public void SortProducts(int sort) { DropdownElement.SelectByIndex(sort); }
+        public IWebElement GetListProducts(int number) { return listProducts[number]; }
+        public void ClickListProducts(int number) { listProducts[number].Click(); }
+        public IWebElement GetButtonBuy() { return moveToButtonBuy; }
+        public void ClickButtonBuy() { elementButtonBuy.Click(); }
+        public IWebElement GetCartClose() { return elementCartClose; }
+        public void ClickCartClose() { elementCartClose.Click(); }
+        public IWebElement GetLogo() { return elementLogo; }
+        public void ClickLogo() { elementLogo.Click(); }
     }
 }

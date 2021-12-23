@@ -57,7 +57,7 @@ namespace RozetkaPageFactory.TestDataAccess
         {
             return filter.numberProduct;
         }
-        
+
         public int GetNumberPrice()
         {
             return filter.price;

@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using RozetkaPageFactoryParallel.PageObjects;
 using SeleniumExtras.PageObjects;
-using SeleniumExtras.WaitHelpers;
 using System.Collections.Generic;
 
 namespace RozetkaPageFactory.PageObjects
@@ -19,13 +18,9 @@ namespace RozetkaPageFactory.PageObjects
         [FindsBy(How = How.CssSelector, Using = "input.search-form__input")]
         IWebElement choiseTitle;
 
-        public ProductPage ChooseCategoryProduct(int category, string search)
-        {
-            listMenu[category].Click();
-            wait.Until(ExpectedConditions.ElementToBeClickable(choiseTitle));
-            choiseTitle.SendKeys(search + "\n");
-            return new ProductPage(driver);
-        }
-
+        public IList<IWebElement> GetCategory() { return listMenu; }
+        public void ClickListMenu(int category) { listMenu[category].Click(); }
+        public IWebElement GetCategoryProducts() { return choiseTitle; }
+        public void TextProduct(string search) { choiseTitle.SendKeys(search + "\n"); }
     }
 }

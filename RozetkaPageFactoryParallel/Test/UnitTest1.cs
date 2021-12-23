@@ -1,9 +1,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using RozetkaPageFactory.PageObjects;
 using RozetkaPageFactory.TestDataAccess;
-using RozetkaPageFactoryParallel.PageObjects;
+using RozetkaPageFactoryParallel.BusinessObject;
 using RozetkaPageFactoryParallel.TestDataAccess;
 using System;
 using System.Collections.Concurrent;
@@ -32,7 +31,7 @@ namespace RozetkaPageFactoryParallel
         public void Initialize()
         {
             Driver = new ChromeDriver();
-            ProperyReader propReader = new ProperyReader();
+            ProperyReader propReader = new();
             Driver.Navigate().GoToUrl(propReader.GetURL());
             Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
@@ -42,15 +41,15 @@ namespace RozetkaPageFactoryParallel
         [TestCaseSource(typeof(DataProvider), nameof(DataProvider.TestData))]
         public void ExecuteTest(Filter filter)
         {
-            HomePage homePage = new HomePage(Driver);
-            ProductPage productPage = homePage.ChooseCategoryProduct(filter.categoryProducts, filter.nameProducts);
-            productPage.ChooseProduct(filter.brand, filter.sort);
-            productPage.BuyProduct(filter.numberProduct);
+            ChooseCategory chooseCategory = new(Driver);
+            chooseCategory.ChooseCategoryProduct(filter.categoryProducts, filter.nameProducts);
 
-            CartPage cartPage = new CartPage(Driver);
-            int summ = cartPage.CheckSummProducts();
-            Console.WriteLine(summ);
-            Assert.That(summ, Is.LessThan(filter.price));
+            OrderProduct orderProduct = new(Driver);
+            orderProduct.ChooseProduct(filter.brand, filter.sort);
+            orderProduct.BuyProduct(filter.numberProduct);
+
+            CheckSumm checkSumm = new(Driver);
+            Assert.That(checkSumm.CheckSummProducts(), Is.LessThan(filter.price));
         }
 
         [TearDown]

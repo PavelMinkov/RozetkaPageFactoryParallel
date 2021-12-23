@@ -12,8 +12,7 @@ namespace RozetkaPageFactoryParallel.PageObjects
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
-            this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
         }
-
     }
 }

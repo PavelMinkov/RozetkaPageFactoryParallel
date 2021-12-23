@@ -9,18 +9,15 @@ namespace RozetkaPageFactoryParallel.PageObjects
         {
             PageFactory.InitElements(driver, this);
         }
+
         [FindsBy(How = How.XPath, Using = "//li[contains(@class,'cart')]")]
         IWebElement cart;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='cart-receipt__sum-price']/span[1]")]
         IWebElement cartSumm;
 
-        public int CheckSummProducts()
-        {
-            cart.Click();
-            return int.Parse(cartSumm.Text);
-        }
-
-
+        public IWebElement GetCart() { return cart; }
+        public void ClickCart() { cart.Click(); }
+        public IWebElement GetCartSumm() { return cartSumm; }
     }
 }
