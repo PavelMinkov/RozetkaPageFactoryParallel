@@ -33,7 +33,7 @@ namespace RozetkaPageFactoryParallel
             Driver = new ChromeDriver();
             ProperyReader propReader = new();
             Driver.Navigate().GoToUrl(propReader.GetURL());
-            Driver.Manage().Window.Maximize();
+            //Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
 
@@ -41,15 +41,15 @@ namespace RozetkaPageFactoryParallel
         [TestCaseSource(typeof(DataProvider), nameof(DataProvider.TestData))]
         public void ExecuteTest(Filter filter)
         {
-            ChooseCategory chooseCategory = new(Driver);
-            chooseCategory.ChooseCategoryProduct(filter.categoryProducts, filter.nameProducts);
+            ChooseCategory chooseCategory = new();
+            chooseCategory.ChooseCategoryProduct(Driver, filter.categoryProducts, filter.nameProducts);
 
-            OrderProduct orderProduct = new(Driver);
-            orderProduct.ChooseProduct(filter.brand, filter.sort);
-            orderProduct.BuyProduct(filter.numberProduct);
+            OrderProduct orderProduct = new();
+            orderProduct.ChooseProduct(Driver, filter.brand, filter.sort);
+            orderProduct.BuyProduct(Driver, filter.numberProduct);
 
-            CheckSumm checkSumm = new(Driver);
-            Assert.That(checkSumm.CheckSummProducts(), Is.LessThan(filter.price));
+            CheckSumm checkSumm = new();
+            Assert.That(checkSumm.CheckSummProducts(Driver), Is.LessThan(filter.price));
         }
 
         [TearDown]

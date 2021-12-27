@@ -1,23 +1,12 @@
 ﻿using OpenQA.Selenium;
 using RozetkaPageFactory.PageObjects;
-using RozetkaPageFactoryParallel.PageObjects;
-using SeleniumExtras.PageObjects;
-using SeleniumExtras.WaitHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RozetkaPageFactoryParallel.BusinessObject
 {
-    class ChooseCategory : BasePage
+    class ChooseCategory
     {
-        public ChooseCategory(IWebDriver driver) : base(driver)
-        {
-        }
 
-        public void ChooseCategoryProduct(int category, string search)
+        public void ChooseCategoryProduct(IWebDriver driver, int category, string search)
         {
             HomePage homePage = new HomePage(driver);
 

@@ -1,16 +1,11 @@
 ﻿using OpenQA.Selenium;
 using RozetkaPageFactoryParallel.PageObjects;
-using SeleniumExtras.PageObjects;
 
 namespace RozetkaPageFactoryParallel.BusinessObject
 {
-    class CheckSumm : BasePage
+    class CheckSumm
     {
-        public CheckSumm(IWebDriver driver) : base(driver)
-        {
-        }
-
-        public int CheckSummProducts()
+        public int CheckSummProducts(IWebDriver driver)
         {
             CartPage cartPage = new CartPage(driver);
 
