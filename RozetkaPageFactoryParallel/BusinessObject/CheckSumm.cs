@@ -8,7 +8,6 @@ namespace RozetkaPageFactoryParallel.BusinessObject
     {
         public CheckSumm(IWebDriver driver) : base(driver)
         {
-            PageFactory.InitElements(driver, this);
         }
 
         public int CheckSummProducts()

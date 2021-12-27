@@ -15,8 +15,6 @@ namespace RozetkaPageFactoryParallel.BusinessObject
     {
         public ChooseCategory(IWebDriver driver) : base(driver)
         {
-            PageFactory.InitElements(driver, this);
-
         }
 
         public void ChooseCategoryProduct(int category, string search)
@@ -24,7 +22,7 @@ namespace RozetkaPageFactoryParallel.BusinessObject
             HomePage homePage = new HomePage(driver);
 
             homePage.ClickListMenu(category);
-            wait.Until(ExpectedConditions.ElementToBeClickable(homePage.GetCategoryProducts()));
+            homePage.waitElementToBeClickable(90, homePage.GetCategoryProducts());
             homePage.TextProduct(search);
         }
 
